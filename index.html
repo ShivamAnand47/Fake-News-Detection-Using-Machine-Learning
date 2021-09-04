@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Fake News📰 Detection System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital@1&display=swap" rel="stylesheet">
+<style>
+h1{
+    font-family: 'Black Ops One', cursive;
+    text-align: center;
+    font-size:60px;
+    }
+    
+h3{
+    font-family: 'Roboto Slab', serif;
+    text-align:left;
+    
+    }
+h4{
+
+    text-align:left;
+    }
+
+p{
+        font-family: 'Zilla Slab', serif;
+        text-align: justify;
+         margin: 35px;
+    }
+
+
+body {
+
+	width: 100%;
+	height:100%;
+	font-family: 'Zilla Slab', serif;
+	background: #092756;
+	color: #fff;
+	font-size: 18px;
+	text-align:center;
+	letter-spacing:1.2px;
+	background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%),-moz-linear-gradient(top,  rgba(57,173,219,.25) 0%, rgba(42,60,87,.4) 100%), -moz-linear-gradient(-45deg,  #670d10 0%, #092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -webkit-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -webkit-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -o-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -o-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);
+	background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), linear-gradient(to bottom,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), linear-gradient(135deg,  #670d10 0%,#092756 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+
+
+</style>
+
+</head>
+<body>
+ <div class="login">
+	<h1>Fake News 📰  Detector</h1>
+
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input type = "text" name="news" placeholder= "Enter the news url" required="required" size="100" />
+    	<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    	
+    </form>
+    
+    <br>
+    <br>
+{{prediction_text}}
+    <br>
+<header>
+<h3>Probability<h3>
+<h4>Realness : {{real}} <h4>
+<h4>Fakeness : {{fake}} <h4>
+</header>
+    <h2>Original Article Details</h2>
+    <h3>Publish date : {{date}}</h3> 
+    <h3>Author name : {{author}}</h3> 
+    <br>
+    <h3>News text :</h3> <p>{{original}}</p>
+    <br>
+    <br>
+    <h2>After Pre-Processing</h2>
+    <br>
+   <h3> News_summary :</h3><p> {{processing}}</p>
+   
+   
+ </div>
+ 
+    </body>
+    </html>
